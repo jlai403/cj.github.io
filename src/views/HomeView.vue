@@ -2,20 +2,32 @@
 </script>
 
 <template>
-  <main class="hero-image">
-    <div class="name">Crystal</div>
-    <div class="and">────&emsp;and&emsp;────</div>
-    <div class="name">Joey</div>
-    <p class="sub-text">Since MMXXII.I.XXII</p>
+  <main class="home">
+    <router-view/>
   </main>
+  <nav>
+    <router-link to="/" class="nav-link">Home</router-link>
+    <router-link to="/story" class="nav-link">Story</router-link>
+    <router-link to="/memories" class="nav-link">Memories</router-link>
+  </nav>
+
 </template>
 
-<style scoped>
-.hero-image {
+<style>
+.router-link-exact-active {
+  font-weight: bold !important;
+}
+
+.home {
   border: 1px solid #ffffff80;
   background-color: rgba(255, 255, 255, 0.1);
   padding: 2rem 5rem;
   text-align: center;
+  height: 350px;
+  width: 600px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
 .name {
@@ -44,6 +56,23 @@
   font-size: 1rem;
   font-weight: bold;
   text-transform: uppercase;
+}
 
+nav {
+  padding-top: 1rem;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-auto-flow: column;
+}
+
+.nav-link:first-of-type {
+  border: none;
+}
+.nav-link {
+  color: var(--vt-c-black);
+  text-transform: uppercase;
+  border-left: 1px solid var(--vt-c-black);
+  padding: 0 1rem;
 }
 </style>
