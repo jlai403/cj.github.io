@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Memories ♡</h1>
+    <h1>Memories</h1>
   </div>
 </template>
 

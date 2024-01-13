@@ -1,10 +1,12 @@
 <template>
 	<transition name="fade">
-		<div v-if="fadeIn" class="hero-image">
-			<p class="sub-text">Since MMXXII.I.XXII</p>
-			<div class="name">Crystal</div>
-			<div class="and">────&emsp;and&emsp;────</div>
-			<div class="name">Joey</div>
+		<div v-if="fadeIn"  class="hero-container">
+			<div class="hero-image">
+				<p class="sub-text">Since MMXXII.I.XXII ♡</p>
+				<div class="name">Crystal</div>
+				<div class="and">────&emsp;and&emsp;────</div>
+				<div class="name">Joey</div>
+			</div>
 		</div>
 	</transition>
 </template>
@@ -28,6 +30,14 @@ onMounted(() => {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+.hero-container {
+	display: grid;
+  align-items: center;
+	text-align: center;
+	height: 100%;
+	width: 100%;
 }
 
 .hero-image {

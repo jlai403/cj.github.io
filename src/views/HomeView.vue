@@ -21,13 +21,9 @@
 .home {
   border: 1px solid #ffffff80;
   background-color: rgba(255, 255, 255, 0.1);
-  padding: 2rem 5rem;
   text-align: center;
-  height: 350px;
-  width: 600px;
-  display: grid;
-  justify-content: center;
-  align-items: center;
+  height: 400px;
+  width: 700px;
 }
 
 .name {
