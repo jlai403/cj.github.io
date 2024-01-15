@@ -6,6 +6,7 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
+// @ts-ignore
 import VueSplide from '@splidejs/vue-splide';
 import '@splidejs/vue-splide/css';
 import '@splidejs/vue-splide/css/skyblue';

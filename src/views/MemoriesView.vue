@@ -22,6 +22,7 @@
 <script setup lang="ts">
 import { useGoogleAuthStore } from '@/stores/googleAuth'
 import { onBeforeMount, ref, type Ref } from 'vue';
+// @ts-ignore
 import { Options, Splide, SplideSlide, SplideTrack } from '@splidejs/vue-splide';
 
 const store = useGoogleAuthStore()
