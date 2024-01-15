@@ -5,7 +5,14 @@
   </nav>
   <main class="memories">
     <a v-if="!authenticated" :href="GOOGLE_AUTH_LINK" class="login-with-google-btn">Sign in with Google</a>
-    {{ photos }}
+    
+    <Splide class="splide--dynamic" aria-labelledby="dynamic-slides-example-heading" :options="options" :has-track="false">
+      <SplideTrack>
+        <SplideSlide v-for="url in photos.map(x => x.baseUrl)" :key="url">
+          <img :src="url"/>
+        </SplideSlide>
+      </SplideTrack>
+    </Splide>
   </main>
   <div>
 
@@ -15,6 +22,7 @@
 <script setup lang="ts">
 import { useGoogleAuthStore } from '@/stores/googleAuth'
 import { onBeforeMount, ref, type Ref } from 'vue';
+import { Options, Splide, SplideSlide, SplideTrack } from '@splidejs/vue-splide';
 
 const store = useGoogleAuthStore()
 const authenticated = store.googleAccessToken ?? false
@@ -25,6 +33,17 @@ const CLIENT_ID = '485750816166-l6lsdvc6odtdv58e7irov4eofapnkrfd.apps.googleuser
 const REDIRECT_URL = `${window.location.origin}/google`;
 const GOOGLE_AUTH_LINK = `https://accounts.google.com/o/oauth2/v2/auth?scope=${PHOTOS_SCOPE}&include_granted_scopes=true&response_type=token&redirect_uri=${REDIRECT_URL}&client_id=${CLIENT_ID}`;
 const photos: Ref<any[]> = ref([]);
+
+const options: Options = {
+  type: 'loop',
+  autoplay: true,
+  interval: 1500,
+  pauseOnHover: false,
+  pauseOnFocus: false,
+  rewind : true,
+  perPage: 1,
+  gap    : '1rem'
+};
 
 onBeforeMount(() => {
   if (authenticated) {
@@ -45,7 +64,6 @@ async function loadPhotoAlbum(accessToken: string) {
     body: JSON.stringify({ albumId: albumJson.id, pageSize: 100 }) 
   });
   const mediaItemsJson = await mediaItemsResponse.json();
-  console.log(mediaItemsJson.mediaItems);
   photos.value.push(...mediaItemsJson.mediaItems)
 }
 </script>
@@ -99,6 +117,11 @@ a.login-with-google-btn {
 
 a.login-with-google-btn:visited {
   background-color: white;
+}
+
+.splide {
+  text-align: center;
+  display: grid;
 }
 
 </style>
