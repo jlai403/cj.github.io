@@ -27,7 +27,7 @@ import { Options, Splide, SplideSlide, SplideTrack } from '@splidejs/vue-splide'
 
 const store = useGoogleAuthStore()
 const authenticated = store.googleAccessToken ?? false
-const lastPath = window.history.state.back;
+const lastPath = window.history.state.back ?? '/';
 
 const PHOTOS_SCOPE = 'https://www.googleapis.com/auth/photoslibrary';
 const CLIENT_ID = '485750816166-l6lsdvc6odtdv58e7irov4eofapnkrfd.apps.googleusercontent.com';
