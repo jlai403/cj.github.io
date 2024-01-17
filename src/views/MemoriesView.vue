@@ -31,7 +31,7 @@ const lastPath = window.history.state.back;
 
 const PHOTOS_SCOPE = 'https://www.googleapis.com/auth/photoslibrary';
 const CLIENT_ID = '485750816166-l6lsdvc6odtdv58e7irov4eofapnkrfd.apps.googleusercontent.com';
-const REDIRECT_URL = `${window.location.origin}/google`;
+const REDIRECT_URL = `${window.location.origin}`;
 const GOOGLE_AUTH_LINK = `https://accounts.google.com/o/oauth2/v2/auth?scope=${PHOTOS_SCOPE}&include_granted_scopes=true&response_type=token&redirect_uri=${REDIRECT_URL}&client_id=${CLIENT_ID}`;
 const photos: Ref<any[]> = ref([]);
 
